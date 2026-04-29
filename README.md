@@ -2,3 +2,5 @@
 The following data entry app allows users to log speed, direction, vehicle type, vehicle color, and time of traffic on University on Avenue. Enjoy!
 
 ->[Video Walk-Through](https://vimeo.com/1187530081?share=copy&fl=sv&fe=ci#t=0)<-
+
+->Data Story [HERE](https://barzigt0-oss.github.io/data_story_5/)<-
