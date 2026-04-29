@@ -1,0 +1,54 @@
+---
+title: "Data Story 5"
+author: "George Barzizza"
+date: "2026-04-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+setwd("/Users/georgebarzizza/Desktop/repos/data_story_5/data_story_5")
+```
+
+```{r, include=FALSE}
+traffic <- read.csv("traffic_data.csv")
+traffic <- traffic %>%
+  rename(
+    date_time = `X2026.04.22.18.24.40`,
+    vehicle_type = SUV,
+    color = Blue,
+    speed = Fast,
+    direction = Southbound.on.University
+  )
+
+```
+```{r}
+traffic %>% head
+```
+```{r, include=FALSE}
+
+traffic_plot <- ggplot(traffic, aes(x = date_time, y = speed, color = vehicle_type)) +
+  geom_point(alpha = 0.7) +
+  facet_wrap(~direction) +
+  theme_minimal()
+
+```
+```{r}
+ggplotly(traffic_plot)
+```
+
+```{r, include=FALSE}
+car_color <- ggplot(traffic, aes(x = color, y = , color = vehicle_type)) +
+  geom_point(alpha = 0.7) +
+  facet_wrap(~direction) +
+  theme_minimal()
+```
+
+```{r}
+# The interactive plot shown above displays traffic speed on University Avenue over a 30 minute. Using data gathered from a shiny data entry app, the plot captures the direction in which each car was driving, the speed, and the time in which the data entry was made. This tool has potential uses for speed regulation planning by helping Sewanee Police Department understand when people tend to speed and what direction speeders are typically heading toward.
+```
